@@ -25,7 +25,10 @@ export default defineUserConfig({
       },
       resolve: {
         alias: {
-          '@waline/client': path.resolve(__dirname, '../../../packages/client'),
+          '@waline/client': path.resolve(
+            __dirname,
+            '../../../packages/client/dist',
+          ),
         },
       },
       optimizeDeps: {
