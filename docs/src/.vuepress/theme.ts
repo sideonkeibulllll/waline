@@ -38,7 +38,7 @@ export default hopeTheme(
       codeTabs: true,
       figure: true,
       math: {
-        type: 'mathjax',
+        type: 'mathjax-full',
       },
       sub: true,
       sup: true,

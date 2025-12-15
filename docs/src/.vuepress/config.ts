@@ -23,6 +23,14 @@ export default defineUserConfig({
       ssr: {
         noExternal: ['@fancyapps/ui'],
       },
+      resolve: {
+        alias: {
+          '@waline/client': path.resolve(__dirname, '../../../packages/client'),
+        },
+      },
+      optimizeDeps: {
+        include: ['@waline/client'],
+      },
     },
   }),
 
@@ -30,7 +38,7 @@ export default defineUserConfig({
     importCode: {
       handleImportPath: (str) =>
         str === '@waline/api/types'
-          ? path.resolve(__dirname, '../../../packages/api/dist/api.d.ts')
+          ? path.resolve(__dirname, '../../../packages/api/src/index.ts')
           : str,
     },
   },
