@@ -57,9 +57,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm rollup && pnpm style",
+    "build": "pnpm rollup && pnpm style && pnpm postbuild",
     "clean": "rimraf ./dist",
     "dev": "vite",
+    "postbuild": "node -e \"const fs = require('fs'); const files = ['pageview', 'comment', 'component', 'slim', 'waline']; files.forEach(file => { fs.copyFileSync(`./dist/${file}.js`, `./dist/${file}`); });\" ",
     "prepublishOnly": "pnpm clean && pnpm build",
     "rollup": "rollup -c rollup.config.ts --configPlugin esbuild",
     "style": "pnpm style:main && pnpm style:meta",
