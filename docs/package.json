@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prebuild": "pnpm --dir=../packages/client build",
     "build": "vuepress build src",
     "dev": "vuepress dev src"
   },

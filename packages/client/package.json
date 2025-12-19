@@ -60,7 +60,7 @@
     "build": "pnpm rollup && pnpm style && pnpm postbuild",
     "clean": "rimraf ./dist",
     "dev": "vite",
-    "postbuild": "node -e \"const fs = require('fs'); const files = ['pageview', 'comment', 'component', 'slim', 'waline']; files.forEach(file => { fs.copyFileSync(`./dist/${file}.js`, `./dist/${file}`); });\" ",
+    "postbuild": "node -e \"const fs = require('fs'); const path = require('path'); const files = ['pageview', 'comment', 'component', 'slim', 'waline']; files.forEach(file => { const src = path.join(__dirname, 'dist', `${file}.js`); const dest = path.join(__dirname, 'dist', file); if (fs.existsSync(src)) { fs.copyFileSync(src, dest); console.log(`✓ Copied ${file}.js to ${file}`); } else { console.error(`✗ File not found: ${src}`); process.exit(1); } }); console.log('✓ Postbuild completed successfully');\" ",
     "prepublishOnly": "pnpm clean && pnpm build",
     "rollup": "rollup -c rollup.config.ts --configPlugin esbuild",
     "style": "pnpm style:main && pnpm style:meta",
