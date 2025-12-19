@@ -29,8 +29,8 @@ const {
   MARKDOWN_EMOJI,
   MARKDOWN_SUB,
   MARKDOWN_SUP,
-  // mathjax will be the default option for tex
-  MARKDOWN_TEX = 'mathjax',
+  // katex will be the default option for tex
+  MARKDOWN_TEX = 'katex',
   MARKDOWN_MATHJAX = '{}',
   MARKDOWN_KATEX = '{}',
 
